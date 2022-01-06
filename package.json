@@ -1,0 +1,27 @@
+{
+  "name": "webdiplomacy-telegram-bot",
+  "version": "1.0.0",
+  "description": "A telegram bot written in Telegraf.js for the webdiplomacy platform.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jnlucius/webdiplomacy-telegram-bot.git"
+  },
+  "keywords": [
+    "telegram",
+    "webdiplomacy"
+  ],
+  "author": "Lucius Junius",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jnlucius/webdiplomacy-telegram-bot/issues"
+  },
+  "homepage": "https://github.com/jnlucius/webdiplomacy-telegram-bot#readme",
+  "dependencies": {
+    "puppeteer": "^13.0.1"
+  }
+}
