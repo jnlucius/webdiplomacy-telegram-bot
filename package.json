@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/jnlucius/webdiplomacy-telegram-bot#readme",
   "dependencies": {
-    "puppeteer": "^13.0.1"
+    "dotenv": "^10.0.0",
+    "puppeteer": "^13.0.1",
+    "telegraf": "^3.38.0"
   }
 }
