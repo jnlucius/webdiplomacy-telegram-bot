@@ -1,13 +1,6 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs/promises');
 
-//const { getNewgameList } = require("./utility/data.js");
-//const {Telegraf} = require('telegraf');
-//require('dotenv').config();
-
-//const bot = new Telegraf(process.env.BOT_TOKEN);
-
-//querySelector(".light").textContent + ", " + x.querySelector("b").textContent + x.lastChild.textContent
 async function getNewgameList(url){
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
@@ -30,25 +23,19 @@ async function getNewgameList(url){
     })
 
     //for debuging
-    for( game of games){
+    /*for( game of games){
         console.log("\nTitle: " + game.title);
         console.log("Players: " + game.players);
         console.log("Detail: " + game.detail);
         console.log("Phase: " + game.timePerPhase);
         console.log("Link: " + game.link);
-
-        //bot.telegram.sendMessage(process.env.CHANNEL_ID, game.title);
-    }
+    }*/
 
 
     
     await browser.close();
     return games;
 }
-
-//getNewgameList('https://webdiplomacy.ru/gamelistings.php?page-games=1&gamelistType=New');
-
-//bot.launch();
 
 module.exports = {
     getNewgameList

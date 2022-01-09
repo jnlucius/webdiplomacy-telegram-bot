@@ -55,7 +55,6 @@ async function loop() {
 
 bot.launch();
 
-//getNewgameList('https://webdiplomacy.ru/gamelistings.php?page-games=1&gamelistType=New');
 
 
 
