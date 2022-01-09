@@ -7,6 +7,7 @@ const fs = require('fs/promises');
 
 //const bot = new Telegraf(process.env.BOT_TOKEN);
 
+//querySelector(".light").textContent + ", " + x.querySelector("b").textContent + x.lastChild.textContent
 async function getNewgameList(url){
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
@@ -17,7 +18,7 @@ async function getNewgameList(url){
 
         let titles = Array.from(document.querySelectorAll(".gameName")).map(x => x.textContent);
         let players = Array.from(document.querySelectorAll(".gamePhase")).map(x => x.querySelector("b").textContent + x.lastChild.textContent);
-        let details = Array.from(document.querySelectorAll(".gamePotType")).map(x => x.querySelector(".light").textContent + ", " + x.querySelector("b").textContent + x.lastChild.textContent);
+        let details = Array.from(document.querySelectorAll(".gamePotType")).map(x => x.textContent);
         let timePerPhase = Array.from(document.querySelectorAll(".gameHoursPerPhase strong")).map(x => x.textContent);
         let links = Array.from(document.querySelectorAll(".enterBarOpen a")).map(x => x.href);
     

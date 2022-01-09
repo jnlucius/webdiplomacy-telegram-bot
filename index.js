@@ -27,7 +27,7 @@ async function loop() {
     const games = await getNewgameList('https://webdiplomacy.ru/gamelistings.php?page-games=1&gamelistType=New');
 
     for (game of games){
-        bot.telegram.sendMessage(process.env.CHANNEL_ID, `"${game.title}"\n\nPhase: ${game.timePerPhase}\nMap: ${game.detail}\n${game.players}\nLink: ${game.link}`).then((m) => {
+        bot.telegram.sendMessage(process.env.CHANNEL_ID, `<b>"${game.title}"</b>\n\n<b>Phase:</b> ${game.timePerPhase}\n<b>Map:</b> ${game.detail}\n${game.players}\n<b>Link:</b> ${game.link}`,  {parse_mode: 'HTML'}).then((m) => {
             msgInChatID.push(m.message_id);
             //console.log("Pushed msg id into the array. Id: " + m.message_id);
         })
