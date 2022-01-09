@@ -1,7 +1,13 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs/promises');
 
-module.exports = async function getNewgameList(url){
+//const { getNewgameList } = require("./utility/data.js");
+//const {Telegraf} = require('telegraf');
+//require('dotenv').config();
+
+//const bot = new Telegraf(process.env.BOT_TOKEN);
+
+async function getNewgameList(url){
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url);
@@ -29,8 +35,20 @@ module.exports = async function getNewgameList(url){
         console.log("Detail: " + game.detail);
         console.log("Phase: " + game.timePerPhase);
         console.log("Link: " + game.link);
+
+        //bot.telegram.sendMessage(process.env.CHANNEL_ID, game.title);
     }
 
+
+    
     await browser.close();
+    return games;
 }
 
+//getNewgameList('https://webdiplomacy.ru/gamelistings.php?page-games=1&gamelistType=New');
+
+//bot.launch();
+
+module.exports = {
+    getNewgameList
+};
