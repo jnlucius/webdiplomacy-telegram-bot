@@ -1,13 +1,15 @@
 const { getNewgameList } = require("./utility/data.js");
 const {Telegraf} = require('telegraf');
 require('dotenv').config();
+const express = require('express');
+const expressApp = express();
 
 const PORT = process.env.PORT || 3000;
 const URL = process.env.URL;
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 bot.telegram.setWebhook(`${URL}/bot${BOT_TOKEN}`);
-bot.startWebhook(`/bot${BOT_TOKEN}`, null, PORT);
+expressApp.use(bot.webhookCallback(`/bot${BOT_TOKEN}`));
 
 let msgInChatID = [];
 
@@ -60,7 +62,12 @@ async function loop() {
 
 bot.launch();
 
-
+expressApp.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+expressApp.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 
 
