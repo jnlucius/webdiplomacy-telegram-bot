@@ -6,8 +6,9 @@ const expressApp = express();
 
 const PORT = process.env.PORT || 3000;
 const URL = process.env.URL;
+const BOT_TOKEN = process.env.BOT_TOKEN;
 
-const bot = new Telegraf(process.env.BOT_TOKEN);
+const bot = new Telegraf(BOT_TOKEN);
 bot.telegram.setWebhook(`${URL}/bot${BOT_TOKEN}`);
 expressApp.use(bot.webhookCallback(`/bot${BOT_TOKEN}`));
 
